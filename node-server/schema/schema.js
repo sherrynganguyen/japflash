@@ -13,18 +13,18 @@ const {
   GraphQLNonNull
 } = graphql;
 
-const words = [
-  {id: '1', jap: 'akai', eng: 'red', categoryId: '2'},
-  {id: '2', jap: 'aoi', eng: 'blue', categoryId: '2'},
-  {id: '3', jap: 'akarui', eng: 'autumn', categoryId:'1'},
-  {id: '4', jap: 'yomimasu', eng: 'read', categoryId: '3'},
-];
+// const words = [
+//   {id: '1', jap: 'akai', eng: 'red', categoryId: '2'},
+//   {id: '2', jap: 'aoi', eng: 'blue', categoryId: '2'},
+//   {id: '3', jap: 'akarui', eng: 'autumn', categoryId:'1'},
+//   {id: '4', jap: 'yomimasu', eng: 'read', categoryId: '3'},
+// ];
 
-const categories = [
-  {id: '1', type: 'noun'},
-  {id: '2', type: 'adjective'},
-  {id: '3', type: 'verb'},
-];
+// const categories = [
+//   {id: '1', type: 'noun'},
+//   {id: '2', type: 'adjective'},
+//   {id: '3', type: 'verb'},
+// ];
 
 const WordType = new GraphQLObjectType({
   name: 'Word',
@@ -35,8 +35,6 @@ const WordType = new GraphQLObjectType({
     categoryId: {
       type: CategoryType,
       resolve(parent, args){
-        // return _.find(categories, {id: parent.categoryId})
-
         return Category.findById(parent.categoryId)
       }
     }
@@ -51,7 +49,6 @@ const CategoryType = new GraphQLObjectType({
     words: {
       type: new GraphQLList(WordType),
       resolve(parent, args){
-        // return _.filter(words, {categoryId: parent.id})
         return Word.find({categoryId: parent.id})
       }
     }
