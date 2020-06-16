@@ -1,6 +1,6 @@
 import { gql } from "apollo-boost";
 
-const getBook = gql`
+const getWordQuery = gql`
 {
   words{
     eng
@@ -12,7 +12,7 @@ const getBook = gql`
 }
 `;
 
-const getCategories = gql`
+const getCategoriesQuery = gql`
 {
   categories{
     name
@@ -26,12 +26,13 @@ const addWordMutation = gql`
     addWord(eng: $eng, jap: $jap, categoryId: $categoryId) {
       eng
       jap
+      id
     }
   }
 `;
 
 export {
-  getBook,
-  getCategories,
+  getWordQuery,
+  getCategoriesQuery,
   addWordMutation
 }

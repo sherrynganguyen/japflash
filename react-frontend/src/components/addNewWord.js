@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
-import { useQuery } from '@apollo/react-hooks';
-
+import { useQuery, useMutation } from '@apollo/react-hooks';
+import { flowRight as compose } from 'lodash';
 import {
-  getCategories,
-  addWordMutation,
+  getWordQuery,
+  getCategoriesQuery,
+  addWordMutation
 } from '../queries/queries';
 
 
@@ -12,23 +13,34 @@ import {
 function AddNewWord() {
   const [eng, setEng] = useState('');
   const [jap, setJap] = useState('');
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState('5ee1e5fb556b58436281f5e8');
+  const [addWord] = useMutation(addWordMutation);
 
   //Loading categories
-  const { loading, error, data } = useQuery(getCategories);
+  const { loading, error, data } = useQuery(getCategoriesQuery);
   
   //Rendering categories to the form
   const renderCategories = (data) => {
-    if (loading) return <p>Loading...</p>;
-    if (error) return <p>Error</p>;
+    if (loading) return <option>Loading...</option>;
+    if (error) return <option>Error</option>;
     return data.categories.map((category) => {
       return <option key={category.id} value={category.id}>{category.name}</option>
     });
   };
 
-  const handleSubmit = () => {
-    console.log('hello')
-  }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(eng, jap, category);
+    addWord({
+      variables: {
+        eng: eng,
+        jap: jap,
+        categoryId: category
+      },
+      refetchQueries: [{query: getWordQuery}]
+    })
+  };
+
   return (
     <form id="add-book" onSubmit={handleSubmit}>
       <div className="field">
@@ -44,10 +56,13 @@ function AddNewWord() {
         <select onChange={(e) => setCategory(e.target.value)}>
           {renderCategories(data)}
         </select>
-        <button>+</button>
       </div>
+      <button>+</button>
     </form>
   )
 }
 
-export default graphql(addWordMutation)(AddNewWord);
+export default compose(
+  graphql(getCategoriesQuery, {name: "getCategoriesQuery"}),
+  graphql(addWordMutation, {name: "addWordMutation"})
+)(AddNewWord);
