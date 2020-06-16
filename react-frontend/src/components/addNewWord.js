@@ -1,28 +1,11 @@
 import React, { useState } from 'react';
-import { gql } from 'apollo-boost';
 import { graphql } from 'react-apollo';
 import { useQuery } from '@apollo/react-hooks';
 
-// const getBook = gql`
-// {
-//   words{
-//     eng
-//     jap
-//     categoryId{
-//       name
-//     }
-//   }
-// }
-// `;
+import { addWordMutation } from '../queries/queries';
 
-const addWordMutation = gql`
-  mutation($eng: String!, $jap: String!, $categoryId: ID!) {
-    addWord(eng: $eng, jap: $jap, categoryId: $categoryId) {
-      eng
-      jap
-    }
-  }
-`;
+
+
 function AddNewWord() {
   const [eng, setEng] = useState('');
   const [jap, setJap] = useState('');
