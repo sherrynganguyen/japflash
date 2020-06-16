@@ -12,6 +12,15 @@ const getBook = gql`
 }
 `;
 
+const getCategories = gql`
+{
+  categories{
+    name
+    id
+  }
+}
+`;
+
 const addWordMutation = gql`
   mutation($eng: String!, $jap: String!, $categoryId: ID!) {
     addWord(eng: $eng, jap: $jap, categoryId: $categoryId) {
@@ -23,5 +32,6 @@ const addWordMutation = gql`
 
 export {
   getBook,
+  getCategories,
   addWordMutation
 }

@@ -2,14 +2,29 @@ import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
 import { useQuery } from '@apollo/react-hooks';
 
-import { addWordMutation } from '../queries/queries';
+import {
+  getCategories,
+  addWordMutation,
+} from '../queries/queries';
 
 
 
 function AddNewWord() {
   const [eng, setEng] = useState('');
   const [jap, setJap] = useState('');
-  const [caetgory, setCategory] = useState('');
+  const [category, setCategory] = useState('');
+
+  //Loading categories
+  const { loading, error, data } = useQuery(getCategories);
+  
+  //Rendering categories to the form
+  const renderCategories = (data) => {
+    if (loading) return <p>Loading...</p>;
+    if (error) return <p>Error</p>;
+    return data.categories.map((category) => {
+      return <option key={category.id} value={category.id}>{category.name}</option>
+    });
+  };
 
   const handleSubmit = () => {
     console.log('hello')
@@ -27,9 +42,9 @@ function AddNewWord() {
       <div className="field">
         <label>Category</label>
         <select onChange={(e) => setCategory(e.target.value)}>
-          {}
-          </select>
-          <button></button>
+          {renderCategories(data)}
+        </select>
+        <button>+</button>
       </div>
     </form>
   )
