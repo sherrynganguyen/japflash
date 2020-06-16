@@ -52,12 +52,12 @@ function AddNewWord() {
         <input type="text" onChange={(e) => setEng(e.target.value)}/>
       </div>
       <div className="field">
-        <label>Category</label>
+        <label>Category:</label>
         <select onChange={(e) => setCategory(e.target.value)}>
           {renderCategories(data)}
         </select>
       </div>
-      <button>+</button>
+      <button>Add</button>
     </form>
   )
 }
