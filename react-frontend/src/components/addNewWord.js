@@ -8,7 +8,7 @@ import {
   addWordMutation
 } from '../queries/queries';
 
-
+import './styles.scss';
 
 function AddNewWord() {
   const [eng, setEng] = useState('');

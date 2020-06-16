@@ -1,7 +1,6 @@
 import React from 'react';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import './App.scss';
 import AddNewWord from './components/addNewWord';
 
 const client = new ApolloClient({
@@ -13,7 +12,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <h1>Welcome to JapFlash</h1>
+        <h1>JapFlash</h1>
         <AddNewWord/>
       </div>
     </ApolloProvider>
