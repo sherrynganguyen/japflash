@@ -9,7 +9,7 @@
     "server": "cd node-server && nodemon index.js",
     "start": "cd node-server && node index.js",
     "dev": "concurrently --kill-others-on-fail \"npm run node-server\" \"npm run react-frontend\"",
-    "heroku-postbuild": "cd react-frontend && npm install && npm run build"  
+    "heroku-postbuild": "cd react-frontend && npm install && npm run build"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,15 @@
   "bugs": {
     "url": "https://github.com/sherrynganguyen/japflash/issues"
   },
-  "homepage": "https://github.com/sherrynganguyen/japflash#readme"
+  "homepage": "https://github.com/sherrynganguyen/japflash#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-graphql": "^0.9.0",
+    "graphql": "^15.1.0",
+    "lodash": "^4.17.15",
+    "mongoose": "^5.9.19",
+    "nodemon": "^2.0.4"
+  }
 }
