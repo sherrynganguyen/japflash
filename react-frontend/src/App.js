@@ -12,7 +12,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <h1>JapFlash</h1>
+        <h1>JapFlash - Test Deploy</h1>
         <AddNewWord/>
       </div>
     </ApolloProvider>
