@@ -1,3 +1,28 @@
+.main-page .navbar {
+  border: none;
+  a {
+    display: block;
+    margin: 15px 20%;
+    padding: 10px;
+    border: 5px solid #fca311;
+    border-radius: 10px;
+    box-shadow: 1px 1px 3px 1px #ccc;
+    transform: skewX(-5deg);
+    text-align: center;
+    font-family: second;
+    font-size: 25px;
+    color: #ffffff;
+    text-decoration: none;
+  }
+}
+
+.title {
+  text-align: center;
+  text-decoration: none;
+  font-family: second;
+  color: #fca311;
+}
+
 #add-book {
   margin: 30px 10px;
   padding: 50px 20px 30px;
@@ -38,5 +63,15 @@
     text-transform: uppercase;
     font-weight: bold;
     cursor: pointer;
+  }
+}
+
+.navbar {
+  border: 1px solid #fff;
+  font-size: 20px;
+  a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
   }
 }

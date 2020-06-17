@@ -1,13 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavBar from './navbar';
 import './styles.scss';
-export default function MainPage() {
+
+export default function NavBar() {
   return (
-    <div className="main-page">
-      
-      <NavBar/>
-      {/* <nav className="navbar">
+    <nav className="navbar">
       <ul>
         <Link to="/input">Input</Link>
         <Link to="/flashcards">FlashCards</Link>
@@ -15,7 +12,6 @@ export default function MainPage() {
         <Link to="/multiple">Multiple</Link>
         <Link to="/multiple">Report</Link>
       </ul>
-    </nav> */}
-    </div>
+    </nav>
   )
 }
