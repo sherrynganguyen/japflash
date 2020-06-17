@@ -10,6 +10,7 @@ import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
 import AddNewWord from './components/addNewWord';
 import FlashCards from './components/flashCards';
+import MainPage from './components/mainPage';
 
 const client = new ApolloClient({
   uri: 'http://localhost:8080/graphql',
@@ -18,33 +19,15 @@ const client = new ApolloClient({
 
 function App() {
   return (
-    <ApolloProvider client={client}>
       <Router>
-      <div>
-        <h1 className="title">JapFlash</h1>
-        <nav className="navbar">
-          <Link to="/input">Input</Link>
-          <Link to="/flashcards">FlashCards</Link>
-          <Link to="/challenge">Challenge</Link>
-          <Link to="/multiple">Multiple</Link>
-          <Link to="/multiple">Report</Link>
-        </nav>
-
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
         <Switch>
-          <Route path="/flashcards">
-            <FlashCards />
-          </Route>
-          <Route path="/input">
-            <div className="App">
-              <AddNewWord />
-            </div>
-          </Route>
+          <ApolloProvider client={client}>
+            <Route exact path="/" component={MainPage}></Route>
+            <Route path="/input" component={AddNewWord}></Route>
+            <Route path="/flashcards" component={FlashCards}></Route>
+          </ApolloProvider>
         </Switch>
-      </div>
-    </Router>
-    </ApolloProvider>
+      </Router>
   );
 }
 
