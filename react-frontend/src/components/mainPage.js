@@ -3,10 +3,15 @@ import {
   Link
 } from 'react-router-dom';
 
+import ToggleButton from './toggleNavbar/toggleButton';
+
 export default function MainPage() {
   return (
     <>
-      <h1 className="title">JapFlash</h1>
+      <div className="header">
+        <ToggleButton/>
+        <div className="title">JapFlash</div>
+      </div>
       <nav className="navbar">
         <Link to="/input">Input</Link>
         <Link to="/flashcards">FlashCards</Link>
