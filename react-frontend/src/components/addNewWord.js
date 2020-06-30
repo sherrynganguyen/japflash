@@ -30,7 +30,6 @@ function AddNewWord() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(eng, jap, category);
     addWord({
       variables: {
         eng: eng,
@@ -39,6 +38,7 @@ function AddNewWord() {
       },
       refetchQueries: [{query: getWordQuery}]
     })
+    setEng('');
   };
 
   return (
