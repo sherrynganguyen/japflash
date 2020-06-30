@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Link
 } from 'react-router-dom';
 
 import ToggleButton from './toggleNavbar/toggleButton';
-
+import SideDrawer from './toggleNavbar/sideDrawer';
 export default function MainPage() {
+
+  const [display, setDisplay] = useState(false);
+
+  const handleToggle = () => {
+    setDisplay((prevDisplay) => {
+      return {display: !prevDisplay.display}
+    })
+  };
+  // const sideNav = () => {
+  //   if (display) {
+  //     return <SideDrawer/>
+  //   }
+  // }
   return (
     <>
-      <div className="header">
-        <ToggleButton/>
-        <div className="title">JapFlash</div>
-      </div>
+      <ToggleButton toggle={handleToggle}/>
+      <div className="title">JapFlash</div>
+      <SideDrawer show={display}/>
       <nav className="navbar">
         <Link to="/input">Input</Link>
         <Link to="/flashcards">FlashCards</Link>

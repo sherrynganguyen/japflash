@@ -1,0 +1,30 @@
+.side-drawer {
+  top: 0;
+  left: 0;
+  position: fixed;
+  width: 150px;
+  height: 100%;
+  background: #efefef;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-out;
+  ul {
+    margin-top: 30%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    li {
+      margin: 0.5em 0;
+      a {
+        text-decoration: none;
+        font-family: second;
+        color: #fca311;
+      }
+    }
+  }
+}
+
+.show-nav {
+  display: inline;
+  transform: translateX(0) ;
+}
