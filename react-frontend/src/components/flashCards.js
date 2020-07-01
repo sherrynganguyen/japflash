@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
 import { useQuery, useMutation } from '@apollo/react-hooks';
+import { useSprings, animated, interpolate } from 'react-spring';
+import { useGesture } from 'react-use-gesture';
 // import { flowRight as compose } from 'lodash';
-import {
-  getWordQuery,
-  getCategoriesQuery,
-  addWordMutation
-} from '../queries/queries';
+import { getWordQuery } from '../queries/queries';
 
 import './styles.scss';
+import Cards from './cards';
 import WordDetails from './wordDetails';
 
 export default function FlashCards() {
@@ -18,14 +17,15 @@ export default function FlashCards() {
     const { loading, err, data } = useQuery(getWordQuery)
     if (loading) return <div>Loading words...</div>;
     if (err) return  <div>Error</div>;
-    return (
-      <div>
-        {data.words.map(word => {
-          console.log(word)
-          return <WordDetails word={word}/>;
-        })}
-      </div>
-    )
+    // return (
+    //   <div>
+    //     {data.words.map(word => {
+    //       console.log(word)
+    //       return <WordDetails word={word}/>;
+    //     })}
+    //   </div>
+    // )
+    return <Cards list={data.words}/>
   }
 
   return (
