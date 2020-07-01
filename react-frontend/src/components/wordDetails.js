@@ -5,7 +5,6 @@ import {graphql} from 'react-apollo';
 import { getWordQuery } from '../queries/queries';
 
 function WordDetails({word}) {
-  console.log(word)
   const displayBookDetails = () => {
     if (word) {
       return (
