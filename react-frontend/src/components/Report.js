@@ -12,8 +12,24 @@ export default function Report() {
     if (loading) return <div>Loading words...</div>;
     if (err) return  <div>Error</div>;
     return (
-      <div>
-        {data.words.length}
+      <div className="report">
+        <h2>Total Words Learned: {data.words.length}</h2>
+        <h3>Nouns: {data.words.filter(word =>  
+            word.categoryId.name === "noun"
+          ).length}
+        </h3>
+        <h3>Verbs: {data.words.filter(word =>  
+            word.categoryId.name === "verb"
+          ).length}
+        </h3>
+        <h3>i-Adjective: {data.words.filter(word =>  
+            word.categoryId.name === "i-adjective"
+          ).length}
+        </h3>
+        <h3>na-Adjective: {data.words.filter(word =>  
+            word.categoryId.name === "na-adjective"
+          ).length}
+        </h3>
       </div>
     )
   }
