@@ -29,7 +29,7 @@ export default function MainPage() {
         <Link to="/flashcards">FlashCards</Link>
         <Link to="/challenge">Challenge</Link>
         <Link to="/multiple">Multiple</Link>
-        <Link to="/multiple">Report</Link>
+        <Link to="/report">Report</Link>
       </nav>
     </>
   )

@@ -8,7 +8,6 @@ import { getWordQuery } from '../queries/queries';
 function WordDetails({word}) {
 
   const [flipped, setFlipped] = useState(false);
-
   const handleFlipped = (e) => {
     e.preventDefault();
     setFlipped((prevFlipped) => {
@@ -17,7 +16,7 @@ function WordDetails({word}) {
   };
 
 
-  const displayBookDetails = (word) => {
+  const displayWordDetails = (word) => {
 
     
     if (word) {
@@ -51,7 +50,7 @@ function WordDetails({word}) {
   
   return (
     <div id="word-details">
-      {displayBookDetails(word)}
+      {displayWordDetails(word)}
     </div>
   );
 }

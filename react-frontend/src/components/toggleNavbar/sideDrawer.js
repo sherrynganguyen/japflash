@@ -21,7 +21,7 @@ export default function SideDrawer ({show}) {
         <li><Link to="/flashcards">FlashCards</Link></li>
         <li><Link to="/challenge">Challenge</Link></li>
         <li><Link to="/multiple">Multiple</Link></li>
-        <li><Link to="/multiple">Report</Link></li>
+        <li><Link to="/report">Report</Link></li>
       </ul>
   </nav>
   )
