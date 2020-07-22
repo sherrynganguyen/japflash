@@ -3,8 +3,8 @@ import {
   Link
 } from 'react-router-dom';
 
-import ToggleButton from './toggleNavbar/toggleButton';
-import SideDrawer from './toggleNavbar/sideDrawer';
+import ToggleButton from './ToggleNavbar/ToggleButton';
+import SideDrawer from './ToggleNavbar/SideDrawer';
 export default function MainPage() {
 
   const [display, setDisplay] = useState(false);

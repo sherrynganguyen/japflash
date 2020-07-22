@@ -8,12 +8,12 @@ import {
 import './app.scss';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import AddNewWord from './components/addNewWord';
-import FlashCards from './components/flashCards';
-import MainPage from './components/mainPage';
+import AddNewWord from './components/AddNewWord';
+import FlashCards from './components/FlashCards';
+import MainPage from './components/MainPage';
 // import MainPage from './components/mainPage';
 // import MainPage from './components/mainPage';
-import Report from './components/report';
+import Report from './components/Report';
 
 const client = new ApolloClient({
   uri: 'http://localhost:8080/graphql',

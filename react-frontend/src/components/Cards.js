@@ -3,7 +3,7 @@ import { useSprings, animated, interpolate } from 'react-spring';
 import { useGesture } from 'react-use-gesture';
 
 import './styles.scss';
-import WordDetails from './wordDetails';
+import WordDetails from './WordDetails';
 
 const to = i => ({
   x: 0,

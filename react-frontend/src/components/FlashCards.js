@@ -7,8 +7,8 @@ import { useGesture } from 'react-use-gesture';
 import { getWordQuery } from '../queries/queries';
 
 import './styles.scss';
-import Cards from './cards';
-import WordDetails from './wordDetails';
+import Cards from './Cards';
+import WordDetails from './WordDetails';
 
 export default function FlashCards() {
   
