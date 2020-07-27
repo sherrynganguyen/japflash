@@ -37,12 +37,11 @@ export default function FlashCards() {
     //   </div>
     // )
     return <Cards list={data.words}/>
-    // return <Deck cards={cards}/>
   }
 
   return (
     <div className="flashCards">
-      {/* <h2>Flash</h2> */}
+      <h2>Flash</h2>
       {WordsList()}
     </div>
     
