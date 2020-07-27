@@ -10,6 +10,7 @@ function WordDetails({word}) {
   const [flipped, setFlipped] = useState(false);
   const handleFlipped = (e) => {
     e.preventDefault();
+    console.log('check')
     setFlipped((prevFlipped) => {
       return {flipped: !prevFlipped.flipped}
     })
@@ -21,25 +22,26 @@ function WordDetails({word}) {
     
     if (word) {
       return (
-        <div className="flip">
+        <div className="flip" onClick={e => handleFlipped(e)}>
           <ReactCardFlip
             isFlipped={flipped}
             flipDirection="horizontal"
             infinite="true"
             flipSpeedBackToFront="2"
             flipSpeedFrontToBack="2"
+            
           >
           <div>
             This is the front of the card.
             <h2>Japanese: {word.jap}</h2>
-            <button onClick={handleFlipped}>Click to flip</button>
+            {/* <button onClick={handleFlipped}>Click to flip</button> */}
           </div>
   
           <div>
             This is the back of the card.
             <p>English: {word.eng}</p>
             <p>Category: {word.category}</p>
-            <button onClick={handleFlipped}>Click to flip</button>
+            {/* <button onClick={handleFlipped}>Click to flip</button> */}
           </div>
         </ReactCardFlip>
 
