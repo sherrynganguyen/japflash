@@ -25,8 +25,6 @@ scale(${s})
 
 export default function Cards({list}) {
   
-
-
   const [gone] = useState(() => new Set())
 
   const [props, set] = useSprings(list.length, i => ({

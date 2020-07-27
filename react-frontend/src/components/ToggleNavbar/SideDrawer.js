@@ -17,6 +17,7 @@ export default function SideDrawer ({show}) {
   return (
     <nav className={drawerClass}>
       <ul>
+        <li><Link to="/">Home</Link></li>
         <li><Link to="/input">Input</Link></li>
         <li><Link to="/flashcards">FlashCards</Link></li>
         <li><Link to="/challenge">Challenge</Link></li>

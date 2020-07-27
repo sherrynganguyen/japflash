@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -11,18 +11,28 @@ import { ApolloProvider } from '@apollo/react-hooks';
 import AddNewWord from './components/AddNewWord';
 import FlashCards from './components/FlashCards';
 import MainPage from './components/MainPage';
-// import MainPage from './components/mainPage';
-// import MainPage from './components/mainPage';
 import Report from './components/Report';
-
+import ToggleButton from './components/ToggleNavbar/ToggleButton';
+import SideDrawer from './components/ToggleNavbar/SideDrawer';
 const client = new ApolloClient({
   uri: 'http://localhost:8080/graphql',
   
 });
 
 function App() {
+
+  const [display, setDisplay] = useState(false);
+
+  const handleToggle = () => {
+    setDisplay((prevDisplay) => {
+      return {display: !prevDisplay.display}
+    })
+  };
+
   return (
-      <Router>
+    <Router>
+        <ToggleButton toggle={handleToggle}/>
+        <SideDrawer show={display}/>
         <Switch>
           <ApolloProvider client={client}>
             <Route exact path="/" component={MainPage}></Route>
