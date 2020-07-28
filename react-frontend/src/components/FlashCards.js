@@ -1,33 +1,18 @@
 import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
-import { useQuery, useMutation } from '@apollo/react-hooks';
-import { useSprings, animated, interpolate } from 'react-spring';
-import { useGesture } from 'react-use-gesture';
-// import { flowRight as compose } from 'lodash';
+import { useQuery } from '@apollo/react-hooks';
 import { getWordQuery } from '../queries/queries';
+import { flowRight as compose } from 'lodash';
 
 import './styles.scss';
 import Cards from './Cards';
-// import Deck from './Cards'
-import WordDetails from './WordDetails';
-
 
 export default function FlashCards() {
-  
- 
   const WordsList = () => {
     const [selected, setSelected] = useState(null);
     const { loading, err, data } = useQuery(getWordQuery)
     if (loading) return <div>Loading words...</div>;
     if (err) return  <div>Error</div>;
-    // return (
-    //   <div>
-    //     {data.words.map(word => {
-    //       console.log(word)
-    //       return <WordDetails word={word}/>;
-    //     })}
-    //   </div>
-    // )
     return <Cards list={data.words}/>
   }
 

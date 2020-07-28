@@ -24,12 +24,12 @@ mongoose.connect(url, {
   (!err) ? console.log('Connected successfully to database') : console.log(`Cannot connect to database due to ${err}`);
 });
 
-app.use(express.static(path.join(__dirname, '../react-frontend/public')))
+// app.use(express.static(path.join(__dirname, '../react-frontend/public')))
 
 // AFTER defining routes: Anything that doesn't match what's above, send back index.html; (the beginning slash ('/') in the string is important!)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname + '/../react-frontend/public/index.html'))
-})
+// app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname + '/../react-frontend/public/index.html'))
+// })
 
 app.use('/graphql', graphqlHTTP({
   schema,

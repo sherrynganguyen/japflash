@@ -21,6 +21,16 @@ const getCategoriesQuery = gql`
 }
 `;
 
+const findWordQuery = gql`
+  query($id: ID){
+    word(id: $id){
+      id
+      jap
+      eng
+    }
+  }
+`;
+
 const addWordMutation = gql`
   mutation($eng: String!, $jap: String!, $categoryId: ID!) {
     addWord(eng: $eng, jap: $jap, categoryId: $categoryId) {
@@ -34,5 +44,6 @@ const addWordMutation = gql`
 export {
   getWordQuery,
   getCategoriesQuery,
+  findWordQuery,
   addWordMutation
 }
