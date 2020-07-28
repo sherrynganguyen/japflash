@@ -8,10 +8,18 @@ import {
 import './app.scss';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from '@apollo/react-hooks';
-import AddNewWord from './components/AddNewWord';
-import FlashCards from './components/FlashCards';
-import MainPage from './components/MainPage';
-import Report from './components/Report';
+import {
+  AddNewWord,
+  FlashCards,
+  MainPage,
+  Report,
+  Challenge
+} from './components/index'
+// import AddNewWord from './components/AddNewWord';
+// import FlashCards from './components/FlashCards';
+// import MainPage from './components/MainPage';
+// import Challenge from './components/Challenge';
+// import Report from './components/Report';
 import ToggleButton from './components/ToggleNavbar/ToggleButton';
 import SideDrawer from './components/ToggleNavbar/SideDrawer';
 const client = new ApolloClient({
@@ -38,7 +46,7 @@ function App() {
             <Route exact path="/" component={MainPage}></Route>
             <Route path="/input" component={AddNewWord}></Route>
             <Route path="/flashcards" component={FlashCards}></Route>
-            <Route path="/challenge" component={FlashCards}></Route>
+            <Route path="/challenge" component={Challenge}></Route>
             <Route path="/multiple" component={FlashCards}></Route>
             <Route path="/report" component={Report}></Route>
           </ApolloProvider>
